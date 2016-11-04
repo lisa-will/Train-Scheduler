@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Train Times</title>
+
+	<!-- CSS Links --> 
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!-- Bootstrap Link -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css">
+
+	<!-- Font Awesome Link -->
+	<script src="https://use.fontawesome.com/64485c0271.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+	
+</head>
+<body>
+<!-- Add Header - Jumbotron --> 
+<div class="container">
+	<div class="jumbotron">
+		<h1 class="text-center">
+		<i class="fa fa-train" aria-hidden="true"></i>  Anytime is Train Time</h1>
+		<p class="text-center">Choo. Choo. Cha. Cha. Cha.</p>
+	</div>
+
+<!-- Setup Train Table Data --> 
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><i class="fa fa-check" aria-hidden="true"></i> Current Train Schedule</h3>
+		</div>
+
+<!-- Train Table Info -->
+<div class="panel-body">
+	<table class="table" id="trainSchedule">
+		<tbody id="currentData">
+			<tr>	
+			<th><i class="fa fa-train" aria-hidden="true"></i> Train Name</th>
+			<th><i class="fa fa-map-marker" aria-hidden="true"></i> Destination</th>
+			<th><i class="fa fa-history" aria-hidden="true"></i> Frequency (min)</th>
+			<th><i class="fa fa-clock-o" aria-hidden="true"></i> Next Arrival</th>
+			<th><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Minutes Away</th>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Add New Train Info/Input --> 
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-plus" aria-hidden="true"></i> Add Train</h3>
+			</div>
+			<div class="panel-body">
+			<form>
+			<div class="form-group">
+			<label for="addTrainName"><i class="fa fa-train" aria-hidden="true"></i> Train Name</label>
+			<input type="text" class="form-control" id="addTrainName">
+			</div>
+				<div class="form-group">
+					<label for="addDestination"><i class="fa fa-map-marker" aria-hidden="true"></i> Destination</label>
+					<input type="text" class="form-control" id="addDestination">
+				</div>
+				<div class="form-group">
+
+
+<!-- Fix military time input... --> 
+<div class="form-group">
+    <div class="input-group date timepicker"
+        data-date-format="HH:mm"
+        data-date-useseconds="false"
+        data-date-pickDate="false">
+		<label for="addTrainTime"><i class="fa fa-clock-o" aria-hidden="true"></i> First Train Time (HH:mm - military time)</label>
+        <input type="time" class="form-control" id="addTrainTime">
+    </div>
+</div>
+
+				<div class="form-group">
+					<label for="addFrequency"><i class="fa fa-history" aria-hidden="true"></i> Frequency</label>
+					<input type="text" class="form-control" id="addFrequency">
+				</div>
+				<button type="button" class="btn btn-primary">Submit</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- moment.js link--> 
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<!-- jquery 2.x link -->	
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<!-- JS file link -->
+<script src="logic.js"></script>
+
+</body>
+</html>
