@@ -19,7 +19,7 @@
 	
 </head>
 <body>
-
+<!-- **FIX SUBMIT BUTTON(S) --> 
 <!-- Add Login Modal -->
 <div class="loginNavbar">
 <!-- Trigger the modal with a button -->
@@ -35,7 +35,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Login</h4>
       </div>
-      <div class="modal-body">
+      	<div class="modal-body">
         <div class="form-group">
         	<!--Add Name --> 
 			<label for="addName"><i class="fa fa-user" aria-hidden="true"></i> Name</label>
@@ -47,8 +47,8 @@
 			<input type="text" class="form-control" id="addEmail">
 			</div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Sumbit</button>
+      	<div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
@@ -67,7 +67,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Sign Up</h4>
       </div>
-      <div class="modal-body">
+      	<div class="modal-body">
         <div class="form-group">
         	<!--Add Name --> 
 			<label for="addNewName"><i class="fa fa-user" aria-hidden="true"></i> Name</label>
@@ -79,9 +79,9 @@
 			<input type="text" class="form-control" id="addNewEmail">
 			</div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Sumbit</button>
-      </div>
+      	<div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+      	</div>
     </div>
   </div>
 </div>
@@ -106,7 +106,7 @@
 <!-- Train Table Info -->
 <div class="panel-body">
 	<table class="table" id="trainSchedule">
-		<tbody id="currentData">
+		<tbody id="tableData">
 			<tr>	
 			<th><i class="fa fa-train" aria-hidden="true"></i> Train Name</th>
 			<th><i class="fa fa-map-marker" aria-hidden="true"></i> Destination</th>
@@ -126,39 +126,39 @@
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-plus" aria-hidden="true"></i> Add Train</h3>
+			<!-- Add Train Title --> 
+			<h3 class="panel-title"><i class="fa fa-plus" aria-hidden="true"></i> Add Train</h3>
 			</div>
 			<div class="panel-body">
 			<form>
+
+			<!-- Add Train Name --> 
 			<div class="form-group">
 			<label for="addTrainName"><i class="fa fa-train" aria-hidden="true"></i> Train Name</label>
 			<input type="text" class="form-control" id="addTrainName">
 			</div>
-				<div class="form-group">
-					<label for="addDestination"><i class="fa fa-map-marker" aria-hidden="true"></i> Destination</label>
-					<input type="text" class="form-control" id="addDestination">
-				</div>
-				<div class="form-group">
 
+			<!-- Add Destination --> 
+			<div class="form-group">
+			<label for="addDestination"><i class="fa fa-map-marker" aria-hidden="true"></i> Destination</label>
+			<input type="text" class="form-control" id="addDestination">
+			</div>
 
-<!-- Fix military time input... --> 
-<div class="form-group">
-    <div class="input-group date timepicker"
-        data-date-format="HH:mm"
-        data-date-useseconds="false"
-        data-date-pickDate="false">
-		<label for="addTrainTime"><i class="fa fa-clock-o" aria-hidden="true"></i> First Train Time (HH:mm - military time)</label>
-        <input type="time" class="form-control" id="addTrainTime">
-    </div>
-</div>
+			<!-- Add Train Time --> 
+			<div class="form-group">
+			<label for="addTrainTime">First Train Time (HH:mm - military time</label>
+			<input type="text" pattern="([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}" class="form-control" id="addTrainTime" placeholder="HH:mm">
+			</div>
 
-				<div class="form-group">
-					<label for="addFrequency"><i class="fa fa-history" aria-hidden="true"></i> Frequency</label>
-					<input type="text" class="form-control" id="addFrequency">
-				</div>
-				<button type="button" class="btn btn-primary">Submit</button>
-				</form>
-				</div>
+			<!-- Add Frequency --> 
+			<div class="form-group">
+			<label for="addFrequency"><i class="fa fa-history" aria-hidden="true"></i> Frequency</label>
+			<input type="text" class="form-control" id="addFrequency">
+			</div>
+				
+			<button type="button" class="btn btn-primary">Submit</button>
+			</form>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -173,7 +173,7 @@
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 <!-- JS file link -->
-<script src="logic.js"></script>
+<script src="assets/javascript/logic.js"></script>
 
 </body>
 </html>
