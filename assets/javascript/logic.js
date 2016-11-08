@@ -9,6 +9,50 @@ var config = {
 
 firebase.initializeApp(config);
 
+// Sign Up New Email & Password
+$("#signup-btn").on('click', function() 
+{
+	var email = $("#email").val();
+	var password = $("#password").val();
+	firebaseref.createUser({
+		email: email,
+		password: password
+	},function(error, userData) {
+		if (error) {
+			console.log("Error creating user:", error);
+		} 
+		else {
+			console.log("Successfully created user account with uid:", userData.uid);
+			
+		}
+	});
+});
+	
+
+// Login with Email & Password 
+$("#login-btn").on('click', function() 
+{
+        var email = $("#login-email").val();
+        var password = $("#login-password").val();
+        firebaseref.authWithPassword({
+            email: email,
+            password: password
+        }, 
+        function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+            }
+        });
+});
+
+// Sign Out
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}, function(error) {
+  // An error happened.
+});
 
 // Variables 
 
@@ -16,6 +60,7 @@ var trainName = "";
 var destination = "";
 var trainTime = 0;
 var frequency = 0;
+var minutesAway = 0;
 var database = firebase.database();
 
 // Calculates Train Arrival Time 
@@ -37,16 +82,12 @@ function nextTrain(trainTime, frequency){
 	var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
 	console.log("DIFFERENCE IN TIME: " + diffTime);
 
-	// The Remainder/Time Apart 
-	var tRemainder = diffTime % tFrequency;
-	console.log("tRemainder: " + tRemainder); 
-
 	// Minutes until Train 
-	var tMinutesTillTrain = tFrequency - tRemainder;
-	console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+	var minutesAway = tFrequency - diffTime;
+	console.log("MINUTES AWAY: " + minutesAway);
 
 	// Next Train Time 
-	var nextTrainTime = moment().add(tMinutesTillTrain, "minutes")
+	var nextTrainTime = moment().add(minutesAway, "minutes")
 	console.log("ARRIVAL TIME: " + moment(nextTrainTime).format("hh:mm"))
 
 	return (moment(nextTrainTime).format("hh:mm"));
@@ -83,6 +124,7 @@ $('button').on('click', function(){
 	destination = $('#addDestination').val().trim();
 	trainTime = $('#addTrainTime').val().trim();
 	frequency = $('#addFrequency').val().trim();
+	minutesAway = $('#addMinutesAway').val().trim();
 
 	// This saves initial values to Firebase 
 	database.ref().push({
@@ -90,6 +132,8 @@ $('button').on('click', function(){
 		destination: destination,
 		trainTime: trainTime,
 		frequency: frequency,
+		minutesAway: minutesAway,
+
 
 	});
 
