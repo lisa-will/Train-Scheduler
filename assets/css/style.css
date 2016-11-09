@@ -7,3 +7,8 @@
 .jumbotron {
 	margin-top: 50px;
 }
+
+.fa-check-square-o::before {
+	color: #e95420;
+	font-size: 38px;
+}

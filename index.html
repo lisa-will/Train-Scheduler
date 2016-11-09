@@ -19,25 +19,14 @@
 	
 </head>
 <body>
-<!-- **FIX SUBMIT BUTTON(S) --> 
-<!-- Login/Sign Up Modal Nav Bar! 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
-      <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
-      <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
-    </ul>
-  </div>
-</nav> -->
 
 <!-- Add Login Modal -->
 <div class="loginNavbar">
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="myModal">Login</button>
+<button id="loginbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="myModal">Login</button>
 
 <!-- Login Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Login Modal content-->
@@ -49,15 +38,15 @@
       	<div class="modal-body">
         <div class="form-group">
         	<!--Add Email --> 
-			<label for="loginEmail"><i class="fa fa-user" aria-hidden="true"></i> Email:</label>
+			<label for="loginEmail"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i> Email:</label>
 			<input type="text" class="form-control" id="login-email">
 			</div>
 			<!--Add Password --> 
 			<div class="form-group">
-			<label for="loginPassword"><i class="fa fa-envelope-o" aria-hidden="true"></i> Password:</label>
+			<label for="loginPassword"><i class="fa fa-key fa-fw" aria-hidden="true"></i> Password:</label>
 			<input type="text" class="form-control" id="login-password">
 			</div>
-      </div>
+      	</div>
       	<div class="modal-footer">
         <button type="button" class="btn btn-primary" data-target="login-btn">Login</button>
       </div>
@@ -66,10 +55,10 @@
 </div>
 
 <!-- Trigger the Sign Up modal with a button -->
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="myModal">Sign Up</button>
+<button id="signupbtn" type="button" class="btn btn-default" data-toggle="modal" data-target="myModal">Sign Up</button>
 
 <!-- Sign Up Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="signupModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Sign Up Modal content-->
@@ -81,22 +70,46 @@
       	<div class="modal-body">
         <div class="form-group">
         	<!--Add Email --> 
-			<label for="addEmail"><i class="fa fa-user" aria-hidden="true"></i> Email:</label>
+			<label for="addEmail"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i> Email:</label>
 			<input type="text" class="form-control" id="Email">
 			</div>
 			<!--Add Password --> 
 			<div class="form-group">
-			<label for="addPassword"><i class="fa fa-envelope-o" aria-hidden="true"></i> Password:</label>
+			<label for="addPassword"><i class="fa fa-key fa-fw" aria-hidden="true"></i> Password:</label>
 			<input type="text" class="form-control" id="password">
 			</div>
-      </div>
+      	</div>
       	<div class="modal-footer">
         <button type="button" class="btn btn-primary" data-target="signup-btn">Submit</button>
       	</div>
     </div>
   </div>
 </div>
-	<button type="button" class="btn btn-primary" data-target="signOut">Sign Out</button>
+	
+<!-- Trigger the Sign Out Modal with a button -->
+<button id="signoutbtn" type="button" class="btn btn-default" data-toggle="modal" data-target="myModal">Sign Out</button>
+
+	<!-- Sign Out Modal -->
+	<div id="signoutModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Sign Out Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Sign Out</h4>
+	      </div>
+	      	<div class="modal-body">
+	      	<div class="form-group">
+	       		<h3><i class="fa fa-check-square-o" aria-hidden="true"></i> You have successfully signed out!</h3>
+			</div>
+	    	</div>
+	      	<div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Good-Bye!</button>
+	      	</div>
+	    </div>
+	  </div>
+</div>
 </div>
 
 
@@ -169,21 +182,21 @@
 			<input type="text" class="form-control" id="addFrequency">
 			</div>
 				
-			<button type="button" class="btn btn-primary">Submit</button>
+			<button type="submitbtn" class="btn btn-primary">Submit</button>
 			</form>
 			</div>
 			</div>
 		</div>
 	</div>
 </div>
-
+<!-- jquery --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+<!-- bootstrap.cdn -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <!-- moment.js link--> 
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-<!-- jquery 2.x link -->	
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 <!-- JS file link -->
 <script src="assets/javascript/logic.js"></script>

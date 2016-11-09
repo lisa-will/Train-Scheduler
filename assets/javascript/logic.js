@@ -9,53 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-// Sign Up New Email & Password
-$("#signup-btn").on('click', function() 
-{
-	var email = $("#email").val();
-	var password = $("#password").val();
-	firebaseref.createUser({
-		email: email,
-		password: password
-	},function(error, userData) {
-		if (error) {
-			console.log("Error creating user:", error);
-		} 
-		else {
-			console.log("Successfully created user account with uid:", userData.uid);
-			
-		}
-	});
-});
-	
-
-// Login with Email & Password 
-$("#login-btn").on('click', function() 
-{
-        var email = $("#login-email").val();
-        var password = $("#login-password").val();
-        firebaseref.authWithPassword({
-            email: email,
-            password: password
-        }, 
-        function(error, authData) {
-            if (error) {
-                console.log("Login Failed!", error);
-            } else {
-                console.log("Authenticated successfully with payload:", authData);
-            }
-        });
-});
-
-// Sign Out
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}, function(error) {
-  // An error happened.
-});
-
 // Variables 
-
 var trainName = "";
 var destination = "";
 var trainTime = 0;
@@ -116,7 +70,7 @@ database.ref().on('child_added', function(childSnapshot){
 });
 
 // Fires when submit button is clicked
-$('button').on('click', function(){
+$('#submitbtn').on('click', function(){
 	console.log("Submit button has been clicked!");
 
 	// Captures form info 
@@ -136,6 +90,70 @@ $('button').on('click', function(){
 
 
 	});
+
+// Sign Up on.click function to open signupModal
+$("#signupbtn").on('click', function() 
+{
+	$('#signupModal').modal('show');
+});
+
+// Sign Up & Submit New Email & Password
+$("#signup-btn").on('click', function() 
+{
+	var email = $("#email").val();
+	var password = $("#password").val();
+	firebaseref.createUser({
+		email: email,
+		password: password
+	},function(error, userData) {
+		if (error) {
+			console.log("Error creating user:", error);
+		} 
+		else {
+			console.log("Successfully created user account with uid:", userData.uid);
+			
+		}
+	});
+});
+
+// Login on.click function to open loginModal
+$("#loginbtn").on('click', function() 
+{
+	$('#loginModal').modal('show');
+});
+	
+
+// Login with Email & Password 
+$("#login-btn").on('click', function() 
+{
+
+        var email = $("#login-email").val();
+        var password = $("#login-password").val();
+        firebaseref.authWithPassword({
+            email: email,
+            password: password
+        }, 
+        function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+            }
+        });
+});
+
+// Sign Out
+$("#signoutbtn").on('click', function() 
+{
+	$('#signoutModal').modal('show');
+
+});
+
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}, function(error) {
+  // An error happened.
+});
 
 // This keeps the page from refreshing if "Enter" is used instead of "clicking" button 
 return false; 
