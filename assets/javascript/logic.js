@@ -91,6 +91,10 @@ $('#submitbtn').on('click', function(){
 
 	});
 
+// This keeps the page from refreshing if "Enter" is used instead of "clicking" button 
+return false; 
+})
+
 // Sign Up on.click function to open signupModal
 $("#signupbtn").on('click', function() 
 {
@@ -155,9 +159,6 @@ firebase.auth().signOut().then(function() {
   // An error happened.
 });
 
-// This keeps the page from refreshing if "Enter" is used instead of "clicking" button 
-return false; 
 
-});
 
 
